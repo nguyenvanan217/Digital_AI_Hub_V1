@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm -r --parallel run dev",
-    "dev:web": "pnpm --filter web dev",
-    "dev:admin": "pnpm --filter admin dev",
-    "dev:api": "pnpm --filter api dev"
+    "dev": "concurrently -k -n API,WEB,ADMIN -c red,blue,green \"pnpm --filter api dev\" \"pnpm --filter web dev\" \"pnpm --filter admin dev\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.30.3"
+  "packageManager": "pnpm@10.30.3",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }

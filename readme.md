@@ -43,7 +43,7 @@ pnpm install
 
 ### ✅ Bước 2: Tạo database MySQL
 
-Bạn cần tạo database tên là `digital_ai_hub` trên MySQL.
+Bạn cần tạo database tên là `digital_ai_hub` trên MySQL hoặc Xampp.
 
 ```sql
 CREATE DATABASE digital_ai_hub;
