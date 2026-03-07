@@ -22,6 +22,7 @@ fs
     return (
       file.indexOf('.') !== 0 &&
       file !== basename &&
+      file !== 'associations.js' &&   // <-- nghĩa là bỏ qua file associations.js
       file.slice(-3) === '.js' &&
       file.indexOf('.test.js') === -1
     );
@@ -31,11 +32,9 @@ fs
     db[model.name] = model;
   });
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+// Apply all associations centrally after all models are loaded
+const setupAssociations = require('./associations');
+setupAssociations(db);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

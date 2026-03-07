@@ -1,32 +1,23 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const VipTransaction = sequelize.define('VipTransaction', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
-    password_hash: {
-      type: DataTypes.STRING,
+    package_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    vip_expired_at: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
-    role: {
+    status: {
       type: DataTypes.STRING,
-      defaultValue: 'user',
+      defaultValue: 'pending',
     },
     created_at: {
       type: DataTypes.DATE,
@@ -37,9 +28,9 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.NOW,
     },
   }, {
-    tableName: 'users',
+    tableName: 'vip_transactions',
     timestamps: false,
   });
 
-  return User;
+  return VipTransaction;
 };

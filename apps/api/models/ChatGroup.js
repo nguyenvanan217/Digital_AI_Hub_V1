@@ -1,33 +1,31 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
+  const ChatGroup = sequelize.define('ChatGroup', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
+    slug: {
       type: DataTypes.STRING,
-      allowNull: false,
       unique: true,
     },
-    password_hash: {
-      type: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    vip_expired_at: {
-      type: DataTypes.DATE,
-      allowNull: true,
+    rules: DataTypes.TEXT,
+    is_public: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
-    role: {
-      type: DataTypes.STRING,
-      defaultValue: 'user',
-    },
+    avatar_url: DataTypes.STRING,
     created_at: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
@@ -37,9 +35,9 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.NOW,
     },
   }, {
-    tableName: 'users',
+    tableName: 'chat_groups',
     timestamps: false,
   });
 
-  return User;
+  return ChatGroup;
 };
