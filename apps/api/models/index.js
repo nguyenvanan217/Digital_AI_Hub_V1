@@ -15,14 +15,13 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
-
 fs
   .readdirSync(__dirname)
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
       file !== basename &&
-      file !== 'associations.js' &&   // <-- nghĩa là bỏ qua file associations.js
+      file !== 'associations.js' &&
       file.slice(-3) === '.js' &&
       file.indexOf('.test.js') === -1
     );
