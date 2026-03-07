@@ -20,7 +20,7 @@ Dự án web sử dụng kiến trúc Monorepo, tách frontend / backend rõ rà
 ```
 DoAnTN-AI-System/
 ├── apps/
-│   ├── api/              # Backend API (Express + TS + Sequelize)
+│   ├── api/              # Backend API (Express+Sequelize)
 │   ├── web/              # Frontend (Next.js)
 │   └── admin/            # Admin dashboard (Vite + React)
 │
